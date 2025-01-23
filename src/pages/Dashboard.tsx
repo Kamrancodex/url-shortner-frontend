@@ -15,9 +15,6 @@ const Dashboard = () => {
   const [linkToDelete, setLinkToDelete] = useState<string | null>(null);
   const navigate = useNavigate();
 
-
-
-
   const handleCopy = async (text: string, id: string) => {
     await navigator.clipboard.writeText(text);
     setCopiedId(id);
@@ -43,8 +40,6 @@ const Dashboard = () => {
     setLoading(false);
   }, [navigate]);
 
-
-
   const handleCreateLink = async (e: React.FormEvent) => {
     e.preventDefault();
     setCreating(true);
@@ -64,8 +59,6 @@ const Dashboard = () => {
     }
   };
 
-
-
   const handleDeleteLink = async (shortCode: string) => {
     try {
       await urlShortenerApi.deleteRegisteredLink(shortCode);
@@ -77,7 +70,6 @@ const Dashboard = () => {
     }
   };
 
-
   const confirmDelete = () => {
     if (linkToDelete) {
       handleDeleteLink(linkToDelete);
@@ -86,14 +78,11 @@ const Dashboard = () => {
     }
   };
 
-  
   const totalVisits =
     links?.reduce((sum, link) => sum + (link.visitCount || 0), 0) || 0;
   const averageClicks = links?.length
     ? Math.round(totalVisits / links.length)
     : 0;
-
-
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -214,7 +203,7 @@ const Dashboard = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
                         <div className="flex items-center space-x-2">
                           <a
-                            href={link.shortUrl}
+                            href={`${window.location.origin}/${link.shortCode}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-900"
@@ -223,7 +212,10 @@ const Dashboard = () => {
                           </a>
                           <button
                             onClick={() =>
-                              handleCopy(link.shortUrl, link.shortCode)
+                              handleCopy(
+                                `${window.location.origin}/${link.shortCode}`,
+                                link.shortCode
+                              )
                             }
                             className="p-1 hover:bg-gray-100 rounded-full transition-colors"
                             title="Copy URL"

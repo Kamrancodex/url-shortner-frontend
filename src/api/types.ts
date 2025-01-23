@@ -1,5 +1,6 @@
 export interface ShortLinkUnreistered {
   shortUrl: string;
+  qrCode: string;
 }
 
 export interface CreateLinkRequest {

@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 import {
   ShortLinkUnreistered,
@@ -37,7 +37,7 @@ export class ApiError extends Error {
 }
 
 const handleApiError = (error: any): ApiError => {
-  if (error instanceof AxiosError && error.response) {
+  if (error instanceof error.response) {
     const { status, data } = error.response;
     return new ApiError(
       status,
