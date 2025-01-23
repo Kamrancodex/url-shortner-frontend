@@ -100,11 +100,11 @@ const Footer = () => {
             <div className="space-y-4">
               <div>
                 <h4 className="text-sm font-semibold mb-2">CALL US</h4>
-                <p className="text-gray-600">+62 123 4567 890</p>
+                <p className="text-gray-600">+91 8493092218</p>
               </div>
               <div>
                 <h4 className="text-sm font-semibold mb-2">EMAIL US</h4>
-                <p className="text-gray-600">hello@shortie.com</p>
+                <p className="text-gray-600">najarkamran212@gmail.com</p>
               </div>
             </div>
           </div>
@@ -113,11 +113,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Shortie" className="h-6" />
+            <img src="logo-html.png" alt="Shortie" className="h-6" />
             <span className="font-semibold">SHORTIE</span>
           </div>
           <p className="text-sm text-gray-600">
-            © Copyright 2023, All Rights Reserved
+            © Copyright 2025, All Rights Reserved
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
