@@ -9,7 +9,7 @@ import {
   SigninResponse,
 } from "./types";
 
-const API_BASE_URL = "https://url-shortener-backend-yk3p.onrender.com/api/v1";
+const API_BASE_URL = "https://sh0rtly.ink/api/v1";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
