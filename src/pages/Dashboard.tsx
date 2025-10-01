@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 import { useNavigate } from "react-router-dom";
 import urlShortenerApi from "../api/api";
 import type { RegisteredLink } from "../api/types";
@@ -91,6 +92,10 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Dashboard — Shortie"
+        canonical="https://sh0rtly.ink/dashboard"
+      />
       <nav className="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">

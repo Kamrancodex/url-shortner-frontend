@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 import { Link, useNavigate } from "react-router-dom";
 import urlShortenerApi from "../api/api";
 
@@ -34,6 +35,7 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <SEO title="Sign in — Shortie" canonical="https://sh0rtly.ink/signin" />
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center text-3xl font-extrabold text-gray-900">
           Sign in to your account
