@@ -9,9 +9,10 @@ const LandingPage = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <HowWeWorks />
+      <div id="how">
+        <HowWeWorks />
+      </div>
       <Features />
-
       <Footer />
     </div>
   );

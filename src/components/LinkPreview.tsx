@@ -47,10 +47,12 @@ const LinkPreview = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 max-w-md mx-auto">
+    <div className="bg-white/80 backdrop-blur rounded-2xl shadow-sm ring-1 ring-gray-200 p-4 sm:p-6 max-w-md mx-auto">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mb-6">
-        <h3 className="font-bold text-lg text-gray-800">GET CODE</h3>
+        <h3 className="font-bold text-lg text-gray-800">
+          Your short link & QR
+        </h3>
         {response?.qrCode && (
           <button
             onClick={() => {
@@ -67,12 +69,33 @@ const LinkPreview = () => {
       </div>
 
       {/* QR Code Container */}
-      <div className="border-2 border-dashed border-gray-200 rounded-lg p-4 mb-6">
+      <div className="border border-dashed border-gray-200 rounded-xl p-4 mb-6">
         <div className="bg-white p-4 rounded-lg shadow-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mb-4">
-            <span className="text-sm text-gray-500">🔗</span>
+            <span className="text-sm text-gray-500">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 12a4 4 0 014-4h1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M16 12a4 4 0 01-4 4h-1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M13 12h-2"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
             <div className="flex items-center gap-2 flex-1">
-              <span className="text-sm text-gray-500 truncate max-w-[200px] sm:max-w-none">
+              <span className="text-sm text-gray-700 truncate max-w-[200px] sm:max-w-none">
                 {response?.shortUrl || "Your shortened link will appear here"}
               </span>
               {response?.shortUrl && (
@@ -130,7 +153,7 @@ const LinkPreview = () => {
             </span>
           </div>
           <div className="flex justify-center">
-            <div className="bg-gray-100 p-4 rounded-lg">
+            <div className="bg-gray-50 p-4 rounded-lg">
               <div className="w-36 h-36 sm:w-48 sm:h-48 bg-white border border-gray-200 rounded-lg flex items-center justify-center">
                 {response?.qrCode ? (
                   <img
@@ -152,36 +175,42 @@ const LinkPreview = () => {
       </div>
 
       {/* Custom Link Preview */}
-      <div className="mb-4">
-        <h4 className="font-semibold text-gray-700 mb-3">
-          CUSTOM/SHORTEN YOUR LINK
+      <div className="mb-2">
+        <h4 className="font-semibold text-gray-800 mb-3">
+          Create a short link
         </h4>
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="bg-gray-50 rounded-xl p-4">
           <form onSubmit={handleSubmit} className="mb-3">
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="url"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
-                placeholder="Enter your URL"
-                className="flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Paste a long URL (https://...)"
+                className="flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600"
                 required
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400"
+                className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors disabled:bg-blue-400"
               >
-                {loading ? "Shortening..." : "Shrtn"}
+                {loading ? "Shortening..." : "Shorten"}
               </button>
             </div>
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
           </form>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-500">💡</span>
-            <p className="text-sm text-gray-500">
-              Create your custom link for better branding
-            </p>
+          <div className="flex items-center gap-2 text-gray-500">
+            <span className="text-sm">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 3a7 7 0 00-4 12.9V19a1 1 0 001 1h6a1 1 0 001-1v-3.1A7 7 0 0012 3z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+            </span>
+            <p className="text-sm">Custom slugs are available after sign up.</p>
           </div>
         </div>
       </div>

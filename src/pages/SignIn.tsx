@@ -15,25 +15,25 @@ const SignIn = () => {
     setLoading(true);
 
     try {
-      const response = await urlShortenerApi.signup(email, password);
+      const response = await urlShortenerApi.signin(email, password);
 
       if (response?.token) {
         localStorage.setItem("auth_token", response.token);
         navigate("/dashboard");
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Sign up failed");
+      setError(error instanceof Error ? error.message : "Sign in failed");
     } finally {
       setLoading(false);
     }
   };
 
   const handleGoogleSignIn = () => {
-    window.location.href = "http://localhost:3000/api/v1/auth/google";
+    window.location.href = "https://sh0rtly.ink/api/v1/auth/google";
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center text-3xl font-extrabold text-gray-900">
           Sign in to your account
@@ -50,7 +50,7 @@ const SignIn = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-white/80 backdrop-blur py-8 px-4 shadow-sm ring-1 ring-gray-200 sm:rounded-2xl sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
